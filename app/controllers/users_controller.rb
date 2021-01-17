@@ -12,4 +12,17 @@ class UsersController < ApplicationController
     user = User.create!(name: name, email: email, password: passwd)
     render plain: "hey #{name}, user successfully created with an id, #{user.id}"
   end
+
+  def login
+    email = params[:email]
+    passwd = params[:password]
+    user = User.find_by "email = ?", email
+    if !user
+      render plain: "User #{email} not found"
+    elsif passwd == user.password
+      render plain: "true"
+    else
+      render plain: "false"
+    end
+  end
 end
