@@ -1,0 +1,23 @@
+<section class="todo-list--container">
+  <div class="todo-list--title-container">
+    <h3 class="todo-list--title"><%= list_title %></h3>
+    <p class="todo-list--count"><%= todos.done.length %> / <%= todos.length %></p>
+  </div>
+
+  <ul class="todo-list--items">
+    <% todos.all.each do |todo| %>
+      <li class="todo-list--item">
+        <div class="todo-list-item--container">
+          <input type="checkbox" name="status" class="todo-list-item--status">
+          <p class="todo-list-item--text"><%= todo.todo_text %></p>
+          <% if show_due_date %>
+            <p class="todo-list-item--date"><%= todo.due_date.to_s(:short) %></p>
+          <% end %>
+          <div class="todo-list-item--delete">
+            <img src="delete.png" alt="trash">
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</section>

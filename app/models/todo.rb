@@ -1,6 +1,17 @@
 class Todo < ActiveRecord::Base
-  def to_displayable_string
-    done = completed ? "[X]" : "[ ]"
-    "#{id}. #{done} #{todo_text} #{due_date.to_s(:long)}"
+  def self.overdue
+    all.where("due_date < ?", Date.today)
+  end
+
+  def self.due_today
+    all.where("due_date = ?", Date.today)
+  end
+
+  def self.due_later
+    all.where("due_date > ?", Date.today)
+  end
+
+  def self.done
+    all.where({ completed: true })
   end
 end
