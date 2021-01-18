@@ -78,6 +78,10 @@ body {
   height: 16px;
 }
 
+.todo-list-item--status:checked + .todo-list-item--text {
+  text-decoration: line-through 1px #726a7e;
+}
+
 .todo-list-item--text {
   font-size: 14px;
   margin-left: 8px;

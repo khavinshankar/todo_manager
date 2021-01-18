@@ -6,18 +6,20 @@
 
   <ul class="todo-list--items">
     <% todos.all.each do |todo| %>
-      <li class="todo-list--item">
-        <div class="todo-list-item--container">
-          <input type="checkbox" name="status" class="todo-list-item--status">
-          <p class="todo-list-item--text"><%= todo.todo_text %></p>
-          <% if show_due_date %>
-            <p class="todo-list-item--date"><%= todo.due_date.to_s(:short) %></p>
-          <% end %>
-          <div class="todo-list-item--delete">
-            <img src="delete.png" alt="trash">
+      <% if !todo.completed || show_done_todos %>
+        <li class="todo-list--item">
+          <div class="todo-list-item--container">
+            <input type="checkbox" name="status" class="todo-list-item--status" <%= todo.completed ? "checked" : "" %>>
+            <p class="todo-list-item--text"><%= todo.todo_text %></p>
+            <% if show_due_date %>
+              <p class="todo-list-item--date"><%= todo.due_date.to_s(:short) %></p>
+            <% end %>
+            <div class="todo-list-item--delete">
+              <img src="assets/delete.png" alt="trash">
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 </section>
