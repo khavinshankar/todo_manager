@@ -27,7 +27,9 @@
             <% end %>
 
             <div class="todo-list-item--delete">
-              <img src="assets/delete.png" alt="trash">
+              <%= form_with url: "/todos/#{todo.id}", method: :delete do |form| %>
+                <input type="image" src="assets/delete.png" alt="trash"/>
+              <% end %>
             </div>
           </div>
         </li>
