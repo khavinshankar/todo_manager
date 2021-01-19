@@ -9,11 +9,23 @@
       <% if !todo.completed || show_done_todos %>
         <li class="todo-list--item">
           <div class="todo-list-item--container">
-            <input type="checkbox" name="status" class="todo-list-item--status" <%= todo.completed ? "checked" : "" %>>
-            <p class="todo-list-item--text"><%= todo.todo_text %></p>
+            <%= form_with url: "/todos/#{todo.id}", method: :put do |form| %>
+              <input
+                type="checkbox" <%= todo.completed ? "checked" : "" %>
+                name="status"
+                class="todo-list-item--status"
+                onclick="this.form.submit()"
+              />
+            <% end %>
+
+            <p class="todo-list-item--text <%= todo.completed ? "todo-list-item-completed--text" : "" %>">
+              <%= todo.todo_text %>
+            </p>
+
             <% if show_due_date %>
               <p class="todo-list-item--date"><%= todo.due_date.to_s(:short) %></p>
             <% end %>
+
             <div class="todo-list-item--delete">
               <img src="assets/delete.png" alt="trash">
             </div>
