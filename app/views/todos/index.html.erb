@@ -2,11 +2,11 @@
 <main class="todo-page--main-container">
   <h1 class="todo-page--main-title">My To-do List</h1>
 
-  <section class="add-todo--container">
+  <%= form_with url: "/todos", method: :post, class: "add-todo--container" do |form| %>
     <input type="text" name="todo_text" placeholder="What's next?" class="add-todo--text">
     <input type="date" name="due_date" class="add-todo--date">
-    <input type="button" value="Add" class="add-todo--btn">
-  </section>
+    <input type="submit" value="Add" class="add-todo--btn">
+  <% end %>
 
   <%= render partial: "todo-list", locals: {
     list_title: "Overdue",
