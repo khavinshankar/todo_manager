@@ -10,13 +10,9 @@
         <li class="todo-list--item">
           <div class="todo-list-item--container">
             <%= form_with url: "/todos/#{todo.id}", method: :put do |form| %>
-              <input
-                type="checkbox" <%= todo.completed ? "checked" : "" %>
-                name="status"
-                class="todo-list-item--status"
-                onclick="this.form.submit()"
-              />
+              <%= form.check_box :status, class: "todo-list-item--status", checked: todo.completed ? true : false, onclick: "this.form.submit()" %>
             <% end %>
+
 
             <p class="todo-list-item--text <%= todo.completed ? "todo-list-item-completed--text" : "" %>">
               <%= todo.todo_text %>
