@@ -1,0 +1,20 @@
+.home--section {
+  margin-bottom: 24px;
+}
+
+.home-message {
+  margin-bottom: 16px;
+}
+
+.home--section-title {
+  color: #453c52;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 8px;
+  line-height: 1.4;
+}
+
+.home--auth-link {
+  color: #00005f;
+  font-size: 14px;
+}

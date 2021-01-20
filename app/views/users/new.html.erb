@@ -1,0 +1,34 @@
+<main class="signup-page--main-container">
+  <section class="auth--section">
+    <h2 class="auth--section-title">Sign-up as a new user</h2>
+  </section>
+
+  <%= form_with url: users_path, method: :post, class: "auth--form" do |form| %>
+    <div class="auth--input-div">
+      <p class="auth--input-label">First Name</p>
+      <%= form.text_field :first_name, class: "auth--form-input" %>
+    </div>
+    <div class="auth--input-div">
+      <p class="auth--input-label">Last Name</p>
+      <%= form.text_field :last_name, class: "auth--form-input" %>
+    </div>
+    <div class="auth--input-div">
+      <p class="auth--input-label">Email</p>
+      <%= form.email_field :email, class: "auth--form-input" %>
+    </div>
+    <div class="auth--input-div">
+      <p class="auth--input-label">Password</p>
+      <%= form.password_field :password, class: "auth--form-input" %>
+    </div>
+    <div class="auth--input-div">
+      <%= form.submit :"Sign-up", class: "auth--form-submit" %>
+    </div>
+  <% end %>
+
+  <section class="auth--section">
+    <h2 class="auth--section-title">Already have an account?</h2>
+    <p>
+      <a class="auth--auth-link" href="/users/sign_in">Sign-in</a>
+    </p>
+  </section>
+</main>
