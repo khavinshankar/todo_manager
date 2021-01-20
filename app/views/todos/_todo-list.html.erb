@@ -5,31 +5,29 @@
   </div>
 
   <ul class="todo-list--items">
-    <% todos.all.each do |todo| %>
-      <% if !todo.completed || show_done_todos %>
-        <li class="todo-list--item">
-          <div class="todo-list-item--container">
-            <%= form_with url: "/todos/#{todo.id}", method: :put do |form| %>
-              <%= form.check_box :status, class: "todo-list-item--status", checked: todo.completed ? true : false, onclick: "this.form.submit()" %>
+    <% todos.each do |todo| %>
+      <li class="todo-list--item">
+        <div class="todo-list-item--container">
+          <%= form_with url: "/todos/#{todo.id}", method: :put do |form| %>
+            <%= form.check_box :status, class: "todo-list-item--status", checked: todo.completed ? true : false, onclick: "this.form.submit()" %>
+          <% end %>
+
+
+          <p class="todo-list-item--text <%= todo.completed ? "todo-list-item-completed--text" : "" %>">
+            <%= todo.todo_text %>
+          </p>
+
+          <% if show_due_date %>
+            <p class="todo-list-item--date"><%= todo.due_date.to_s(:short) %></p>
+          <% end %>
+
+          <div class="todo-list-item--delete">
+            <%= form_with url: "/todos/#{todo.id}", method: :delete do |form| %>
+              <input type="image" src="assets/delete.png" alt="trash"/>
             <% end %>
-
-
-            <p class="todo-list-item--text <%= todo.completed ? "todo-list-item-completed--text" : "" %>">
-              <%= todo.todo_text %>
-            </p>
-
-            <% if show_due_date %>
-              <p class="todo-list-item--date"><%= todo.due_date.to_s(:short) %></p>
-            <% end %>
-
-            <div class="todo-list-item--delete">
-              <%= form_with url: "/todos/#{todo.id}", method: :delete do |form| %>
-                <input type="image" src="assets/delete.png" alt="trash"/>
-              <% end %>
-            </div>
           </div>
-        </li>
-      <% end %>
+        </div>
+      </li>
     <% end %>
   </ul>
 </section>

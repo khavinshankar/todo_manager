@@ -11,19 +11,16 @@
   <%= render partial: "todo-list", locals: {
     list_title: "Overdue",
     todos: Todo.overdue,
-    show_due_date: true,
-    show_done_todos: false
+    show_due_date: true
     } %>
   <%= render partial: "todo-list", locals: {
     list_title: "Due Today",
     todos: Todo.due_today,
-    show_due_date: false,
-    show_done_todos: true
+    show_due_date: false
     } %>
   <%= render partial: "todo-list", locals: {
     list_title: "Due Later",
     todos: Todo.due_later,
-    show_due_date: true,
-    show_done_todos: true
+    show_due_date: true
     } %>
 </main>
