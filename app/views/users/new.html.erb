@@ -27,8 +27,6 @@
 
   <section class="auth--section">
     <h2 class="auth--section-title">Already have an account?</h2>
-    <p>
-      <a class="auth--auth-link" href="/users/sign_in">Sign-in</a>
-    </p>
+     <%= link_to "Sign-in", new_sessions_path, class: "auth--auth-link" %>
   </section>
 </main>

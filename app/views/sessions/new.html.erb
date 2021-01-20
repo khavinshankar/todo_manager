@@ -1,0 +1,24 @@
+<main class="signin-page--main-container">
+  <section class="auth--section">
+    <h2 class="auth--section-title">Sign-in</h2>
+  </section>
+
+  <%= form_with url: sessions_path, method: :post, class: "auth--form" do |form| %>
+    <div class="auth--input-div">
+      <p class="auth--input-label">Email</p>
+      <%= form.email_field :email, class: "auth--form-input" %>
+    </div>
+    <div class="auth--input-div">
+      <p class="auth--input-label">Password</p>
+      <%= form.password_field :password, class: "auth--form-input" %>
+    </div>
+    <div class="auth--input-div">
+      <%= form.submit :"Sign-in", class: "auth--form-submit" %>
+    </div>
+  <% end %>
+
+  <section class="auth--section">
+    <h2 class="auth--section-title">New to the Todo Manager?</h2>
+    <%= link_to "Sign-up", new_user_path, class: "auth--auth-link" %>
+  </section>
+</main>

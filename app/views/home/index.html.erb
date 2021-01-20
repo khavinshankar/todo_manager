@@ -5,15 +5,11 @@
 
   <section class="home--section">
     <h2 class="home--section-title">New to the Todo Manager?</h2>
-    <p>
-      <a class="home--auth-link" href="/users/new">Sign-up for a new account</a>
-    </p>
+    <%= link_to "Sign-up", new_user_path, class: "auth--auth-link" %>
   </section>
 
   <section class="home--section">
     <h2 class="home--section-title">Already have an account?</h2>
-    <p>
-      <a class="home--auth-link" href="/users/sign_in">Sign-in</a>
-    </p>
+    <%= link_to "Sign-in", new_sessions_path, class: "auth--auth-link" %>
   </section>
 </main>
