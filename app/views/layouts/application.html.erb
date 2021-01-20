@@ -20,6 +20,13 @@
         </div>
       <% end %>
     </header>
+
+    <section class="app--flash-messages-container">
+    <% if flash[:error] %>
+      <p class="app-flash-errors"><%= flash[:error] %></p>
+    <% end %>
+    </section>
+
     <%= yield %>
   </body>
 </html>

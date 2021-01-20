@@ -26,3 +26,12 @@
 .app--header-user-name {
   margin-right: 16px;
 }
+
+.app--flash-messages-container {
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.app-flash-errors {
+  color: #730e15;
+}

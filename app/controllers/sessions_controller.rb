@@ -8,9 +8,10 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id
-      redirect_to todos_path
+      redirect_to root_path
     else
-      render plain: "wrong password"
+      flash[:error] = "Invalid Login! Please Retry..."
+      redirect_to new_sessions_path
     end
   end
 
